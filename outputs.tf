@@ -1,3 +1,4 @@
+/*
 #  Use for mc-spoke module
 output "vpc" {
   description = "ID of project VPC"
@@ -15,3 +16,5 @@ output "spoke_gatewayname" {
   value       = module.spoke_azure_1.spoke_gateway.gw_name
   sensitive = "true"
 }
+*/
+
