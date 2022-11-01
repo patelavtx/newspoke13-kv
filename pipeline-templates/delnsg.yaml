@@ -10,6 +10,7 @@ stages:
           deploy:
            steps:
              - task: AzureKeyVault@1
+               displayName: "Pull KV secrets"
                inputs:
                  ConnectedServiceName: $(service_name)
                  KeyVaultName: $(key_vault_name)

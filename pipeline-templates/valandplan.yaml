@@ -5,18 +5,19 @@ stages:
     continueOnError: false
     steps:
     - task: TerraformInstaller@0
-      displayName: 'install'
+      displayName: 'TF install'
       inputs:
         terraformVersion: '1.2.0'
       #Azure KEY Vault
     - task: AzureKeyVault@1
+      displayName: "Pull KV secrets"
       inputs:
         ConnectedServiceName: $(service_name)
         KeyVaultName: $(key_vault_name)
         SecretsFilter: '*'
         RunAsPreJob: false     
     - task: TerraformTaskV3@3
-      displayName: init
+      displayName: 'TF  init'
       inputs:
         provider: 'azurerm'
         command: 'init'
@@ -26,7 +27,7 @@ stages:
         backendAzureRmContainerName: 'ctrspk13-kv'
         backendAzureRmKey: 'spk13.tfstate'
     - task: TerraformTaskV3@3
-      displayName: 'validate'
+      displayName: 'TF validate'
       inputs:
         provider: 'azurerm'
         command: 'validate'
@@ -41,18 +42,19 @@ stages:
           steps:
             - checkout: self
             - task: TerraformInstaller@0
-              displayName: 'install'
+              displayName: 'TF install'
               inputs:
                 terraformVersion: '1.2.0'
              #Azure KEY Vault
             - task: AzureKeyVault@1
+              displayName: "Pull KV secrets"
               inputs:
                 ConnectedServiceName: $(service_name)
                 KeyVaultName: $(key_vault_name)
                 SecretsFilter: '*'
                 RunAsPreJob: false     '
             - task: TerraformTaskV3@3
-              displayName: 'init'
+              displayName: 'TF init'
               inputs:
                 provider: 'azurerm'
                 command: 'init'
@@ -62,7 +64,7 @@ stages:
                 backendAzureRmContainerName: 'ctrspk13-kv'
                 backendAzureRmKey: 'spk13.tfstate'
             - task: TerraformTaskV3@3
-              displayName: 'plan'
+              displayName: 'TF plan'
               env:
                 TF_VAR_name: $(name)
                 TF_VAR_cidr: $(cidr)
