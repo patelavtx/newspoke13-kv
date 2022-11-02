@@ -67,13 +67,6 @@ module "spoke1_nat" {
       dnat_ips  = var.dnatip2,
       dnat_port = "22",
     },
-   rule5 = {
-      dst_cidr  = var.dstcidr2,
-      dst_port  = "8888",
-      protocol  = "tcp",
-      dnat_ips  = var.dnatip2,
-      dnat_port = "88",
-    },
   }
 depends_on = [time_sleep.wait_90_seconds]
 }
