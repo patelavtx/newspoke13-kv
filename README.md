@@ -5,7 +5,7 @@
 ### Used in conjunction with GH repo adotest-13-kvonly-gh to build pipeline
 
 ```
-https://github.com/patelavtx/newspoke13-kv
+https://github.com/patelavtx/newspoke13-kvgh-pipeline.git
 ```
 
 
