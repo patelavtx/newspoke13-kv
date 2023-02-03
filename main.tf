@@ -21,13 +21,13 @@ module "spoke_azure_1" {
 
   #tags = var.tags 
 }
-/*
+
 # Add delay to allow spoke-transit tunnels to come up before deploying custom nat
 resource "time_sleep" "wait_90_seconds" {
     create_duration = "90s"
     depends_on = [module.spoke_azure_1]
 }
-*/
+
 
 #   If NAT is needed ; note that the module varialbes.tf needs addressing when single spoke gw ; see bottom of this page.
 module "spoke1_nat" {
