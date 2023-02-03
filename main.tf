@@ -3,6 +3,8 @@
 
 # https://registry.terraform.io/modules/terraform-aviatrix-modules/mc-overlap-nat-spoke/aviatrix/latest
 # https://registry.terraform.io/modules/terraform-aviatrix-modules/mc-spoke/aviatrix/latest
+
+/*
 module "spoke_azure_1" {
   source         = "terraform-aviatrix-modules/mc-spoke/aviatrix"
   version        = "1.5.0"
@@ -20,7 +22,7 @@ module "spoke_azure_1" {
 
   #tags = var.tags 
 }
-/*
+
 # Add delay to allow spoke-transit tunnels to come up before deploying custom nat
 resource "time_sleep" "wait_90_seconds" {
     create_duration = "90s"
