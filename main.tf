@@ -16,11 +16,11 @@ module "spoke_azure_1" {
   resource_group = "atulrg-spoke13kvgh"
   name = var.name
   subnet_pairs = "2"
-  included_advertised_spoke_routes = "10.255.13.1/32,10.255.13.2/32,10.255.13.251/32,10.255.13.252/32"
+  #included_advertised_spoke_routes = "10.255.13.1/32,10.255.13.2/32,10.255.13.251/32,10.255.13.252/32"
 
   #tags = var.tags 
 }
-
+/*
 # Add delay to allow spoke-transit tunnels to come up before deploying custom nat
 resource "time_sleep" "wait_90_seconds" {
     create_duration = "90s"
@@ -71,4 +71,4 @@ module "spoke1_nat" {
   }
 depends_on = [time_sleep.wait_90_seconds]
 }
-
+*/
