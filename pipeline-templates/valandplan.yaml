@@ -24,7 +24,7 @@ stages:
         backendServiceArm: 'atulavtx-sst2'
         backendAzureRmResourceGroupName: 'atulrg-opstesting'
         backendAzureRmStorageAccountName: 'atulstorspk13'
-        backendAzureRmContainerName: 'ctrspk13-kv'
+        backendAzureRmContainerName: 'ctrspk13-kvgh'
         backendAzureRmKey: 'spk13.tfstate'
     - task: TerraformTaskV3@3
       displayName: 'TF validate'
@@ -61,7 +61,7 @@ stages:
                 backendServiceArm: 'atulavtx-sst2'
                 backendAzureRmResourceGroupName: 'atulrg-opstesting'
                 backendAzureRmStorageAccountName: 'atulstorspk13'
-                backendAzureRmContainerName: 'ctrspk13-kv'
+                backendAzureRmContainerName: 'ctrspk13-kvgh'
                 backendAzureRmKey: 'spk13.tfstate'
             - task: TerraformTaskV3@3
               displayName: 'TF plan'

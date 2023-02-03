@@ -1,11 +1,11 @@
-/*
+
 # AZURE spoke - dev 
 
 # https://registry.terraform.io/modules/terraform-aviatrix-modules/mc-overlap-nat-spoke/aviatrix/latest
 # https://registry.terraform.io/modules/terraform-aviatrix-modules/mc-spoke/aviatrix/latest
 module "spoke_azure_1" {
   source         = "terraform-aviatrix-modules/mc-spoke/aviatrix"
-  version        = "1.3.2"
+  version        = "1.5.0"
   cloud          = "Azure" # added for new mod
   transit_gw     = var.transit_gw
   attached       = var.attached
@@ -13,7 +13,7 @@ module "spoke_azure_1" {
   region         = var.region
   ha_gw          = var.ha_gw
   account        = var.account
-  resource_group = "atulrg-spoke13"
+  resource_group = "atulrg-spoke13kvgh"
   name = var.name
   subnet_pairs = "2"
   included_advertised_spoke_routes = "10.255.13.1/32,10.255.13.2/32,10.255.13.251/32,10.255.13.252/32"
@@ -71,4 +71,4 @@ module "spoke1_nat" {
   }
 depends_on = [time_sleep.wait_90_seconds]
 }
-*/
+

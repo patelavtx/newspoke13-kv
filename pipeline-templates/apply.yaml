@@ -29,7 +29,7 @@ stages:
                     backendServiceArm: 'atulavtx-sst2'
                     backendAzureRmResourceGroupName: 'atulrg-opstesting'
                     backendAzureRmStorageAccountName: 'atulstorspk13'
-                    backendAzureRmContainerName: 'ctrspk13-kv'
+                    backendAzureRmContainerName: 'ctrspk13-kvgh'
                     backendAzureRmKey: 'spk13.tfstate'
                 - task: TerraformTaskV2@2
                   displayName: 'TF apply'
