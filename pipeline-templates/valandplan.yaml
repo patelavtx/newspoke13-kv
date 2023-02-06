@@ -41,10 +41,10 @@ stages:
          deploy:
           steps:
             - checkout: self
-            - task: TerraformInstaller@0
-              displayName: 'TF install'
-              inputs:
-                terraformVersion: '1.2.0'
+            #- task: TerraformInstaller@0
+             # displayName: 'TF install'
+             # inputs:
+             #   terraformVersion: '1.2.0'
              #Azure KEY Vault
             - task: AzureKeyVault@1
               displayName: "Pull KV secrets"
@@ -53,16 +53,16 @@ stages:
                 KeyVaultName: $(key_vault_name)
                 SecretsFilter: '*'
                 RunAsPreJob: false     '
-            - task: TerraformTaskV3@3
-              displayName: 'TF init'
-              inputs:
-                provider: 'azurerm'
-                command: 'init'
-                backendServiceArm: 'atulavtx-sst2'
-                backendAzureRmResourceGroupName: 'atulrg-opstesting'
-                backendAzureRmStorageAccountName: 'atulstorspk13'
-                backendAzureRmContainerName: 'ctrspk13-kvgh'
-                backendAzureRmKey: 'spk13.tfstate'
+            #- task: TerraformTaskV3@3
+             # displayName: 'TF init'
+             # inputs:
+             #   provider: 'azurerm'
+             #   command: 'init'
+             #   backendServiceArm: 'atulavtx-sst2'
+             #   backendAzureRmResourceGroupName: 'atulrg-opstesting'
+             #   backendAzureRmStorageAccountName: 'atulstorspk13'
+             #   backendAzureRmContainerName: 'ctrspk13-kvgh'
+             #   backendAzureRmKey: 'spk13.tfstate'
             - task: TerraformTaskV3@3
               displayName: 'TF plan'
               env:
