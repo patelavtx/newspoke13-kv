@@ -1,0 +1,27 @@
+stages:
+  - stage: Start_agent
+    pool:
+      vmImage: 'ubuntu-latest'
+    jobs:
+    - deployment: start_agent
+      displayName: Start ADO self-hosted agent
+      continueOnError: false
+      environment: spoke13-kv
+      strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: AzureKeyVault@1
+                  displayName: "Pull KV secrets"
+                  inputs:
+                    ConnectedServiceName: $(service_name)
+                    KeyVaultName: $(key_vault_name)
+                    SecretsFilter: '*'
+                    RunAsPreJob: false 
+                - task: AzureCLI@2
+                  displayName: 'Start agent'
+                  inputs:
+                    azureSubscription: $(azurerm-service-connection)
+                    scriptType: 'bash'
+                    scriptLocation: 'inlineScript'
+                    inlineScript: 'az vm start --name $(agent-name) --resource-group $(agent-rg)'
