@@ -21,16 +21,16 @@ stages:
                  #  KeyVaultName: $(key_vault_name)
                  #  SecretsFilter: '*'
                  #  RunAsPreJob: false     
-                #- task: TerraformTaskV3@3
-                 # displayName: 'TF init'
-                 # inputs:
-                 #   provider: 'azurerm'
-                 #   command: 'init'
-                 #   backendServiceArm: 'atulavtx-sst2'
-                 #   backendAzureRmResourceGroupName: 'atulrg-opstesting'
-                 #   backendAzureRmStorageAccountName: 'atulstorspk13'
-                 #   backendAzureRmContainerName: 'ctrspk13-kvgh'
-                 #   backendAzureRmKey: 'spk13.tfstate'
+                - task: TerraformTaskV3@3
+                  displayName: 'TF init'
+                  inputs:
+                    provider: 'azurerm'
+                    command: 'init'
+                    backendServiceArm: 'atulavtx-sst2'
+                    backendAzureRmResourceGroupName: 'atulrg-opstesting'
+                    backendAzureRmStorageAccountName: 'atulstorspk13'
+                    backendAzureRmContainerName: 'ctrspk13-kvgh'
+                    backendAzureRmKey: 'spk13.tfstate'
                 - task: TerraformTaskV2@2
                   displayName: 'TF apply'
                   env:
