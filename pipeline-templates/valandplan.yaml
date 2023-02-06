@@ -33,7 +33,7 @@ stages:
         command: 'validate'
 - stage: plan
   jobs:
-    - deployment: validate_and_plan
+    - deployment: plan
       continueOnError: false
       environment: 'spoke13-kv'
       strategy:
@@ -53,16 +53,16 @@ stages:
                 KeyVaultName: $(key_vault_name)
                 SecretsFilter: '*'
                 RunAsPreJob: false     '
-            #- task: TerraformTaskV3@3
-             # displayName: 'TF init'
-             # inputs:
-             #   provider: 'azurerm'
-             #   command: 'init'
-             #   backendServiceArm: 'atulavtx-sst2'
-             #   backendAzureRmResourceGroupName: 'atulrg-opstesting'
-             #   backendAzureRmStorageAccountName: 'atulstorspk13'
-             #   backendAzureRmContainerName: 'ctrspk13-kvgh'
-             #   backendAzureRmKey: 'spk13.tfstate'
+            - task: TerraformTaskV3@3
+              displayName: 'TF init'
+              inputs:
+                provider: 'azurerm'
+                command: 'init'
+                backendServiceArm: 'atulavtx-sst2'
+                backendAzureRmResourceGroupName: 'atulrg-opstesting'
+                backendAzureRmStorageAccountName: 'atulstorspk13'
+                backendAzureRmContainerName: 'ctrspk13-kvgh'
+                backendAzureRmKey: 'spk13.tfstate'
             - task: TerraformTaskV3@3
               displayName: 'TF plan'
               env:
