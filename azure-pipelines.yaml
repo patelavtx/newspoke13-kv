@@ -2,7 +2,9 @@ trigger:
 - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: azdevops1
+  demands:
+    - agent.name -equals atulvm-azdevops
 
 variables:
 - group: spoke13-kv
