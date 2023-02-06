@@ -21,7 +21,7 @@ stages:
               - task: AzureCLI@2
                 displayName: 'Stop agent'
                 inputs:
-                  azureSubscription: $(azurerm-service-connection)
+                  azureSubscription: 'atulavtx-sst2'
                   scriptType: 'bash'
                   scriptLocation: 'inlineScript'
                   inlineScript: 'az vm stop --name $(agent-name) --resource-group $(agent-rg)'
