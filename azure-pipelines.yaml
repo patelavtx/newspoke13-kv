@@ -2,14 +2,19 @@ trigger:
 - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: azdevops1
+  demands:
+    - agent.name -equals atulvm-devops
 
 variables:
 - group: spoke13-kv
 
 stages:
-- template: pipeline-templates/addnsg.yaml
-- template: pipeline-templates/valandplan.yaml
-- template: pipeline-templates/approval.yaml
-- template: pipeline-templates/apply.yaml
-- template: pipeline-templates/delnsg.yaml
+- template: pipeline-templates-shosted/startselfhost.yaml
+- template: pipeline-templates-shosted/addnsg.yaml
+- template: pipeline-templates-shosted/valandplan.yaml
+- template: pipeline-templates-shosted/approval.yaml
+- template: pipeline-templates-shosted/apply.yaml
+- template: pipeline-templates-shosted/delnsg.yaml
+- template: pipeline-templates-shosted/stopselfhost.yaml
+
