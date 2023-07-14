@@ -21,7 +21,7 @@ module "spoke_azure_1" {
   resource_group = "atulrg-spoke13"
   name = var.name
   subnet_pairs = "2"
-  tags = var.tags
+  #tags = var.tags
 }
 
 
