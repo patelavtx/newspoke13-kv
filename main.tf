@@ -6,7 +6,7 @@
 
 module "spoke_azure_1" {
   source         = "terraform-aviatrix-modules/mc-spoke/aviatrix"
-  version        = "1.6.0"
+  version        = "1.6.3"
   cloud          = "Azure" 
   transit_gw     = var.transit_gw
   attached       = var.attached
