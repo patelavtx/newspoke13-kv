@@ -29,7 +29,6 @@ stages:
                     backendServiceArm: 'atulavtx-sst2'
                     backendAzureRmResourceGroupName: 'atulrg-ado'
                     backendAzureRmStorageAccountName: 'atulado'
-tulado
                     backendAzureRmContainerName: 'ctrspk13-kvgh'
                     backendAzureRmKey: 'spk13.tfstate'
                 - task: TerraformTaskV2@2
