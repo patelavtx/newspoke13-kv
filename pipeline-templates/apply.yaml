@@ -9,18 +9,18 @@ stages:
             deploy:
               steps:
                 - checkout: self
-                #- task: TerraformInstaller@0
-                 # displayName: 'TF install'
-                 # inputs:
-                 #   terraformVersion: '1.2.0'
+                - task: TerraformInstaller@0
+                  displayName: 'TF install'
+                  inputs:
+                    terraformVersion: '1.2.0'
                   #Azure KEY Vault
-                #- task: AzureKeyVault@1
-                 # displayName: "Pull KV secrets"
-                 # inputs:
-                 #  ConnectedServiceName: $(service_name)
-                 #  KeyVaultName: $(key_vault_name)
-                 #  SecretsFilter: '*'
-                 #  RunAsPreJob: false     
+                - task: AzureKeyVault@1
+                  displayName: "Pull KV secrets"
+                  inputs:
+                   ConnectedServiceName: $(service_name)
+                   KeyVaultName: $(key_vault_name)
+                   SecretsFilter: '*'
+                   RunAsPreJob: false     
                 - task: TerraformTaskV3@3
                   displayName: 'TF init'
                   inputs:

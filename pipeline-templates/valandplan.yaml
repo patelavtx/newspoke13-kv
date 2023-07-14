@@ -33,7 +33,7 @@ stages:
         command: 'validate'
 - stage: plan
   jobs:
-    - deployment: plan
+    - deployment: validate_and_plan
       continueOnError: false
       environment: 'spoke13-kv'
       strategy:
@@ -41,10 +41,10 @@ stages:
          deploy:
           steps:
             - checkout: self
-            #- task: TerraformInstaller@0
-             # displayName: 'TF install'
-             # inputs:
-             #   terraformVersion: '1.2.0'
+            - task: TerraformInstaller@0
+              displayName: 'TF install'
+              inputs:
+                terraformVersion: '1.2.0'
              #Azure KEY Vault
             - task: AzureKeyVault@1
               displayName: "Pull KV secrets"
