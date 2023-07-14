@@ -41,10 +41,10 @@ stages:
          deploy:
           steps:
             - checkout: self
-            #- task: TerraformInstaller@0
-             # displayName: 'TF install'
-             # inputs:
-             #   terraformVersion: '1.2.0'
+            - task: TerraformInstaller@0
+              displayName: 'TF install'
+              inputs:
+                terraformVersion: '1.3.6'
              #Azure KEY Vault
             - task: AzureKeyVault@1
               displayName: "Pull KV secrets"
